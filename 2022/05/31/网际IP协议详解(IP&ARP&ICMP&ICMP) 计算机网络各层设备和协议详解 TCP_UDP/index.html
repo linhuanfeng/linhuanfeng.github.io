@@ -5,15 +5,28 @@
   
 
   
-  <title>Hexo</title>
+  <title>网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP/UDP | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="@[TOC] 总体概缆图  一、物理层1、概述透明的传输比特流 2、设备中继器：放大信号集线器：多个端口的集线器 二、链路层1、概述帧的开始和结束、透明传输、差错校验 2、设备网桥：连接两个局域网，根据MAC地址转发帧交换机：更多端口的网桥，根据帧的目标MAC地址对照MAC地址表决定由哪个端口转发，不在表中则向所有端口转发，即洪泛 三、网络层1、概述网络层向上提供简单高效、无连接的、最大努力的交">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP&#x2F;UDP">
+<meta property="og:url" content="http://example.com/2022/05/31/%E7%BD%91%E9%99%85IP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3(IP&ARP&ICMP&ICMP)%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP_UDP/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="@[TOC] 总体概缆图  一、物理层1、概述透明的传输比特流 2、设备中继器：放大信号集线器：多个端口的集线器 二、链路层1、概述帧的开始和结束、透明传输、差错校验 2、设备网桥：连接两个局域网，根据MAC地址转发帧交换机：更多端口的网桥，根据帧的目标MAC地址对照MAC地址表决定由哪个端口转发，不在表中则向所有端口转发，即洪泛 三、网络层1、概述网络层向上提供简单高效、无连接的、最大努力的交">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d287d408c40d441a935096fc34a0d3df.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6ce5ce48da1046d3b59b3405a220098e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bd79aead2fae488689a8df450ae6b424.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6fb8212a2ec140cfb230cddb2057f27d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1002ee4ca8e44429bb54b5f032adf386.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3f7799665f824192a311c19b848f4cbb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/24231a2dd58542d09de60cdb23729a0e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3799cb9ab6c94a6186c97e79bb8ec97c.png">
+<meta property="article:published_time" content="2022-05-31T14:53:26.380Z">
+<meta property="article:modified_time" content="2022-05-31T14:55:54.662Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/d287d408c40d441a935096fc34a0d3df.png#pic_center">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -62,9 +75,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/05/31/%E7%BD%91%E9%99%85IP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3(IP&ARP&ICMP&ICMP)%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP_UDP/" class="article-date">
   <time datetime="2022-05-31T14:53:26.380Z" itemprop="datePublished">2022-05-31</time>
@@ -77,8 +88,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/31/%E7%BD%91%E9%99%85IP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3(IP&ARP&ICMP&ICMP)%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP_UDP/">网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP/UDP</a>
+    <h1 class="article-title" itemprop="name">
+      网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP/UDP
     </h1>
   
 
@@ -200,96 +211,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/05/31/test/" class="article-date">
-  <time datetime="2022-05-31T14:34:56.000Z" itemprop="datePublished">2022-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/31/test/">test</a>
-    </h1>
+    <a href="/2022/05/31/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">test</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/31/test/" data-id="cl3u9hfo7000174uz6be25wvc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/05/31/hello-world/" class="article-date">
-  <time datetime="2022-05-31T14:31:32.651Z" itemprop="datePublished">2022-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/31/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/31/hello-world/" data-id="cl3u9hfo3000074uzbhin5gtl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
