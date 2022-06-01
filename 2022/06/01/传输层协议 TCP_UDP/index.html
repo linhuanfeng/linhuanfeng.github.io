@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>传输层TCP/UDP协议 | linhuanfeng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="## 四、传输层 1、概述运输层为应用进程之间提供端到端的逻辑通信。将上层数据分段并提供端到端的、可靠或不可靠的传输及端到端的差错控制和流量控制，提供建立、维护和取消连接的功能 2、设备网关：协议转换器，充当转换翻译的重任，如果两个网络的通信协议、数据格式或语言不同时，网关会对信息重新打包，以适应目标系统的需求。默认在网络层以上实现网络互联（可用于局域网或广域网） 传输网关：在两个网络之间建立传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="传输层TCP&#x2F;UDP协议">
+<meta property="og:url" content="http://example.com/2022/06/01/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%20TCP_UDP/index.html">
+<meta property="og:site_name" content="linhuanfeng">
+<meta property="og:description" content="## 四、传输层 1、概述运输层为应用进程之间提供端到端的逻辑通信。将上层数据分段并提供端到端的、可靠或不可靠的传输及端到端的差错控制和流量控制，提供建立、维护和取消连接的功能 2、设备网关：协议转换器，充当转换翻译的重任，如果两个网络的通信协议、数据格式或语言不同时，网关会对信息重新打包，以适应目标系统的需求。默认在网络层以上实现网络互联（可用于局域网或广域网） 传输网关：在两个网络之间建立传">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ca748b05b02c4c659eaa0da3f9dc4aa4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cc11cf3282e14cf3ab7992660712a8ae.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ed2407ba4c8e4a41ac52ba952549e7c9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/dc05ca37a9ff432ca01b253e00b0e322.png">
+<meta property="article:published_time" content="2022-06-01T05:52:54.556Z">
+<meta property="article:modified_time" content="2022-06-01T05:53:57.722Z">
+<meta property="article:author" content="linhuanfeng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/ca748b05b02c4c659eaa0da3f9dc4aa4.png">
+  
+    <link rel="alternate" href="/atom.xml" title="linhuanfeng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">linhuanfeng</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-传输层协议 TCP_UDP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/06/01/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%20TCP_UDP/" class="article-date">
+  <time datetime="2022-06-01T05:52:54.556Z" itemprop="datePublished">2022-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      传输层TCP/UDP协议
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>﻿## 四、传输层</p>
+<h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><p>运输层为应用进程之间提供端到端的逻辑通信。<br>将上层数据分段并提供端到端的、可靠或不可靠的传输及端到端的差错控制和流量控制，提供建立、维护和取消连接的功能</p>
+<h3 id="2、设备"><a href="#2、设备" class="headerlink" title="2、设备"></a>2、设备</h3><p><em>网关：协议转换器，充当转换翻译的重任，如果两个网络的通信协议、数据格式或语言不同时，网关会对信息重新打包，以适应目标系统的需求。默认在网络层以上实现网络互联（可用于局域网或广域网）</em></p>
+<p><strong>传输网关</strong>：在两个网络之间建立传输连接，不同网络的主机之间可跨越多个网络的、级联的、点对点的传输连接</p>
+<h3 id="3、协议"><a href="#3、协议" class="headerlink" title="3、协议"></a>3、协议</h3><h4 id="3-1、TCP协议"><a href="#3-1、TCP协议" class="headerlink" title="3.1、TCP协议"></a>3.1、TCP协议</h4><h5 id="3-1-2、TCP主要特点"><a href="#3-1-2、TCP主要特点" class="headerlink" title="3.1.2、TCP主要特点"></a>3.1.2、TCP主要特点</h5><ul>
+<li>1、TCP是<strong>面向连接的传输层协议</strong>。使用TCP协议前要<strong>三次握手</strong>建立连接，使用完后通过<strong>四次挥手</strong>释放连接。</li>
+<li>2、每一条TCP连接只能是<strong>点对点</strong>通信。</li>
+<li>3、TCP提供<strong>可靠交付</strong>的服务。通过TCP连接传输的数据是无差错、不丢失、不重复、按序到达的。</li>
+<li>4、TCP提供<strong>全双工通信</strong>。通信双方任何时候都能发送数据，两边都设有接收缓存和发送缓存。</li>
+<li>5、<strong>面向字节流</strong>。“流”指的是从进程流出和流入的数据都是<strong>字节序列</strong>，TCP并不知道字节流的含义，接收方的应用进程才有能力把字节序列翻译成有意义的数据。</li>
+</ul>
+<h5 id="3-1-2、TCP如何保证可靠传输（原理）"><a href="#3-1-2、TCP如何保证可靠传输（原理）" class="headerlink" title="3.1.2、TCP如何保证可靠传输（原理）"></a>3.1.2、TCP如何保证可靠传输（原理）</h5><p>TCP保证可靠传输有校验和、序列号和确认应答、流量控制（滑动窗口）、流量控制、拥塞控制、连接管理等</p>
+<ul>
+<li>1、校验和<br>利用伪首部检验首部和数据部分。</li>
+<li>2、序列号和确认应答<br>序列号：TCP给每个数据包都进行了编号，这就是序列号。<br>确认应答：每次接收数据后，发送ACK报文进行确认，告诉对方确认号之前都已收到，从确认号位置开始发送即可。</li>
+<li>3、超时重传<br>发送方每次发送一个分组，就启动<strong>超时计时器</strong>，如果在计时器过期之前收到对方的确认，就撤销计时器。否则，就认为刚刚发送的分组丢失，然后重传前面发送的分组。<br>三个细节：</li>
+</ul>
+<p><em>（1）必须<strong>暂存已发送分组的副本</strong>，等收到对方的确认再删除.（2）分组和确认分组都必须进行<strong>编号</strong>，才能知道哪个是对哪个的确认。（3）超时设置要数据在<strong>分组传输的往返时间更长一点</strong>。</em><br>确认丢失：假设B对A的确认M1丢失了，A超时重传M1，B再次收到了M1，B就知道<strong>确认M1丢失</strong>，于是B就会<strong>丢弃这个重复的M1</strong>，并<strong>向A发送确认</strong>，因为A重传就表示A没有收到M1的确认。<br>确认迟到：A发送M1，超时没有收到M1的确认，于是重传，并收到了确认。后面又收到了第一次迟到的重复确认，那么A会<strong>丢弃重复的确认</strong>。</p>
+<ul>
+<li><p>4、流量控制<br>流量控制就是让发送方的发送速率不要太快，要让接收方来得及接收。<br>具体通过<strong>滑动窗口</strong>来实现，告诉发送方我的接收窗口为多少，你的<strong>发送窗口不能超过我的接收窗口</strong>，否则就会数据丢失。<br>当接收方发送<strong>零窗口</strong>的时候，发送方法就会停止发送进行等待。为避免发送<strong>死锁</strong>，可以设置计时器，发送零窗口<strong>探测报文段</strong>。</p>
+<p>  滑动窗口利用三个指针分成四部分：<br>（1）小于P1的是已发送并收到确认的部分，而大于P3的是不允许发送的部分 （2）P3-P1=A的发送窗口 （3）P2-P1等于已发送但未收到确认的字节数 （4）P3-P2是允许发送但未发送的字节数。<br>假设B收到了32之后的分组，但没有收到31，那么B发送的确认号还是31(表示期望收到的序列号)，所以32之后的分组会被重复发送一次。。<br><img src="https://img-blog.csdnimg.cn/ca748b05b02c4c659eaa0da3f9dc4aa4.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>5、TCP的<strong>拥塞控制</strong><br>拥塞：对网络中某一资源的需求超过了该资源所能提供的部分。</p>
+</li>
+</ul>
+<p><em>注意网络是全局许多因素引起的，假设单独增加一些资源，可能会导致其它结点处理能力跟不上加重网络阻塞。</em></p>
+<pre><code>拥塞控制的四种实现算法：
+</code></pre>
+<p>（1）慢开始<br>初始拥塞窗口为cwnd=1，每经过一个轮次cwnd*2指数增加。为防止拥塞窗口增长过大，设置慢开始门限ssthresh：<br>    当cwnd&lt;ssthresh时，使用上面的满开始算法<br>    当cwnd&gt;ssthresh时，改用拥塞避免算法<br>    当cwnd=ssthresh时，使用哪个算法都可以<br>（2）拥塞避免<br>    使用线性增长<br>（3）快重传<br>    快重传：让对方尽早知道某个报文段丢失<br>    有时，个别报文段比如M3会在网络中丢失，但不是网络阻塞引起的。按照快重传算法，接收方法必须立即发送M2的重复确认。<strong>发送方收到3个连续的对M2的确认</strong>，因而立即快重传M3，避免接收方以为发生了网络的拥塞，从而提高了网络吞吐量。<br>（4）快恢复<br>    快重传知道是只是丢弃了个别报文段，于是执行快恢复算法。发送方调正门限值ssthresh=cwnd/2=8，同时设置拥塞窗口cwnd=ssthresh=8,并开始执行拥塞避免算法。<br><img src="https://img-blog.csdnimg.cn/cc11cf3282e14cf3ab7992660712a8ae.png" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>6、TCP的连接管理<br>连接管理就是三次握手和四次挥手的过程。</p>
+<p>  三次握手示意图<br><img src="https://img-blog.csdnimg.cn/ed2407ba4c8e4a41ac52ba952549e7c9.png" alt="在这里插入图片描述"><br>  四次挥手示意图<br><img src="https://img-blog.csdnimg.cn/dc05ca37a9ff432ca01b253e00b0e322.png" alt="在这里插入图片描述"><br>后续补充具体细节和常见问题</p>
+<h4 id="3-2、UDP协议"><a href="#3-2、UDP协议" class="headerlink" title="3.2、UDP协议"></a>3.2、UDP协议</h4><h5 id="3-2-1、UDP主要特点"><a href="#3-2-1、UDP主要特点" class="headerlink" title="3.2.1、UDP主要特点"></a>3.2.1、UDP主要特点</h5></li>
+<li><p>UDP是<strong>无连接的</strong>。发送数据前不需要建立连接，因此减少了开销和发送数据之前的延迟</p>
+</li>
+<li><p>UDP使用<strong>尽最大努力交付</strong>。即不保证可靠交付。</p>
+</li>
+<li><p>UDP是<strong>面向报文的</strong>。UDP对应用层交下来的报文，既不合并也不拆分，而是<strong>保留这些报文的边界</strong>。</p>
+</li>
+<li><p>UDP没有拥塞控制。因此网络阻塞不会导致源主机的发送速率降低</p>
+</li>
+<li><p>UDP支持<strong>一对一、一对多、多对一和多对多的</strong>交互通信</p>
+</li>
+<li><p>UDP<strong>首部开销小</strong>。UDP首部只有8字节，而TCP要20字节</p>
+</li>
+</ul>
+<p>参考<br>计算机网络第七版（谢希仁）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/01/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%20TCP_UDP/" data-id="cl3v6ais00000sguz3nw5agom" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1%E3%80%81VPN%E3%80%81NAT/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">网络层IP协议、路由、VPN、NAT</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/01/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%20TCP_UDP/">传输层TCP/UDP协议</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1%E3%80%81VPN%E3%80%81NAT/">网络层IP协议、路由、VPN、NAT</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 linhuanfeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
