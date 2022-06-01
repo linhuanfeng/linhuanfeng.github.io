@@ -5,14 +5,14 @@
   
 
   
-  <title>网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP | linhuanfeng</title>
+  <title>网络层IP协议、路由 | linhuanfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总体概缆图  一、物理层1、概述透明的传输比特流 2、设备中继器：放大信号集线器：多个端口的集线器 二、链路层1、概述帧的开始和结束、透明传输、差错校验 2、设备网桥：连接两个局域网，根据MAC地址转发帧交换机：更多端口的网桥，根据帧的目标MAC地址对照MAC地址表决定由哪个端口转发，不在表中则向所有端口转发，即洪泛 三、网络层1、概述网络层向上提供简单高效、无连接的、最大努力的交付的数据报服务（">
+  <meta name="description" content="总体概缆图  三、网络层1、概述网络层向上提供简单高效、无连接的、最大努力的交付的数据报服务（IP数据报），为主机之间提供逻辑通信。  IP寻址 路由选择 分组传输 控制子网运行。  IP地址作用：IP地址通过ARP协议转为MAC地址，最终按照硬件地址找到主机的，那为什么不直接使用MAC地址，主要是屏蔽下层异构网络 2、设备路由器：连接多个逻辑分开的网络，根据IP地址区分不同的网络，实现网路的互连">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP">
-<meta property="og:url" content="http://example.com/2022/05/31/%E7%BD%91%E9%99%85IP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3(IP&ARP&ICMP&ICMP)%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP_UDP/index.html">
+<meta property="og:title" content="网络层IP协议、路由">
+<meta property="og:url" content="http://example.com/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1/index.html">
 <meta property="og:site_name" content="linhuanfeng">
-<meta property="og:description" content="总体概缆图  一、物理层1、概述透明的传输比特流 2、设备中继器：放大信号集线器：多个端口的集线器 二、链路层1、概述帧的开始和结束、透明传输、差错校验 2、设备网桥：连接两个局域网，根据MAC地址转发帧交换机：更多端口的网桥，根据帧的目标MAC地址对照MAC地址表决定由哪个端口转发，不在表中则向所有端口转发，即洪泛 三、网络层1、概述网络层向上提供简单高效、无连接的、最大努力的交付的数据报服务（">
+<meta property="og:description" content="总体概缆图  三、网络层1、概述网络层向上提供简单高效、无连接的、最大努力的交付的数据报服务（IP数据报），为主机之间提供逻辑通信。  IP寻址 路由选择 分组传输 控制子网运行。  IP地址作用：IP地址通过ARP协议转为MAC地址，最终按照硬件地址找到主机的，那为什么不直接使用MAC地址，主要是屏蔽下层异构网络 2、设备路由器：连接多个逻辑分开的网络，根据IP地址区分不同的网络，实现网路的互连">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/d287d408c40d441a935096fc34a0d3df.png#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/6ce5ce48da1046d3b59b3405a220098e.png">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/24231a2dd58542d09de60cdb23729a0e.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/3799cb9ab6c94a6186c97e79bb8ec97c.png">
 <meta property="article:published_time" content="2022-05-31T14:53:26.380Z">
-<meta property="article:modified_time" content="2022-05-31T15:16:26.409Z">
+<meta property="article:modified_time" content="2022-06-01T01:06:45.779Z">
 <meta property="article:author" content="linhuanfeng">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/d287d408c40d441a935096fc34a0d3df.png#pic_center">
@@ -75,9 +75,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-网络层IP协议、路由" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/05/31/%E7%BD%91%E9%99%85IP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3(IP&ARP&ICMP&ICMP)%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP_UDP/" class="article-date">
+    <a href="/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1/" class="article-date">
   <time datetime="2022-05-31T14:53:26.380Z" itemprop="datePublished">2022-05-31</time>
 </a>
     
@@ -89,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP
+      网络层IP协议、路由
     </h1>
   
 
@@ -99,11 +99,7 @@
       
         <p>总体概缆图</p>
 <p><img src="https://img-blog.csdnimg.cn/d287d408c40d441a935096fc34a0d3df.png#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="一、物理层"><a href="#一、物理层" class="headerlink" title="一、物理层"></a>一、物理层</h2><h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><p>透明的传输比特流</p>
-<h3 id="2、设备"><a href="#2、设备" class="headerlink" title="2、设备"></a>2、设备</h3><p><strong>中继器</strong>：放大信号<br><strong>集线器</strong>：多个端口的集线器</p>
-<h2 id="二、链路层"><a href="#二、链路层" class="headerlink" title="二、链路层"></a>二、链路层</h2><h3 id="1、概述-1"><a href="#1、概述-1" class="headerlink" title="1、概述"></a>1、概述</h3><p>帧的开始和结束、透明传输、差错校验</p>
-<h3 id="2、设备-1"><a href="#2、设备-1" class="headerlink" title="2、设备"></a>2、设备</h3><p><strong>网桥</strong>：连接两个局域网，根据MAC地址转发帧<br><strong>交换机</strong>：更多端口的网桥，根据帧的目标MAC地址对照MAC地址表决定由哪个端口转发，不在表中则向所有端口转发，即洪泛</p>
-<h2 id="三、网络层"><a href="#三、网络层" class="headerlink" title="三、网络层"></a>三、网络层</h2><h3 id="1、概述-2"><a href="#1、概述-2" class="headerlink" title="1、概述"></a>1、概述</h3><p>网络层向上提供<strong>简单高效、无连接的、最大努力的交付的数据报服务</strong>（IP数据报），为主机之间提供逻辑通信。</p>
+<h2 id="三、网络层"><a href="#三、网络层" class="headerlink" title="三、网络层"></a>三、网络层</h2><h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><p>网络层向上提供<strong>简单高效、无连接的、最大努力的交付的数据报服务</strong>（IP数据报），为主机之间提供逻辑通信。</p>
 <ul>
 <li>IP寻址</li>
 <li>路由选择</li>
@@ -111,7 +107,7 @@
 <li>控制子网运行。</li>
 </ul>
 <p>IP地址作用：IP地址通过ARP协议转为MAC地址，最终按照硬件地址找到主机的，那为什么不直接使用MAC地址，主要是屏蔽下层异构网络</p>
-<h3 id="2、设备-2"><a href="#2、设备-2" class="headerlink" title="2、设备"></a>2、设备</h3><p><strong>路由器</strong>：连接多个逻辑分开的网络，根据IP地址区分不同的网络，实现网路的互连和隔离，把IP报文传送到正确的网络。</p>
+<h3 id="2、设备"><a href="#2、设备" class="headerlink" title="2、设备"></a>2、设备</h3><p><strong>路由器</strong>：连接多个逻辑分开的网络，根据IP地址区分不同的网络，实现网路的互连和隔离，把IP报文传送到正确的网络。</p>
 <h3 id="3、协议"><a href="#3、协议" class="headerlink" title="3、协议"></a>3、协议</h3><h4 id="3-1、网际协议IP"><a href="#3-1、网际协议IP" class="headerlink" title="3.1、网际协议IP"></a>3.1、网际协议IP</h4><p>网际协议IP是TCP/IP体系中两个最主要的协议之一，这里所说的是IPv4。<br>与IP协议配套的三个协议：</p>
 <ul>
 <li><strong>地址解析协议ARP</strong>(Address Resolution Protocol）</li>
@@ -193,24 +189,33 @@
 <li>由于路由器不会转发专用地址，当专用地址想要<strong>与互联网主机通信</strong>的时候，需要通过NAT路由器<strong>将其本地址转换成全球IP地址</strong>才能联网（当然该路由器本身至少得有一个全球IP地址），这就是<strong>网络地址转换NAT</strong>(Network Address Translation)。通俗来说就是公用一个公网IP</li>
 <li>使用端口号的NAT也叫做<strong>网络地址与端口号转换NAPT</strong>(Network Address and port Translation)。由于端口号属于传输层，这违反了层次关系，导致NAPT曾遭受了一些诟病，但NAT(NAPT)依然成为互联网的一个重要组件。</li>
 </ul>
-<h2 id="四、传输层"><a href="#四、传输层" class="headerlink" title="四、传输层"></a>四、传输层</h2><h3 id="1、概述-3"><a href="#1、概述-3" class="headerlink" title="1、概述"></a>1、概述</h3><p>运输层为应用进程之间提供端到端的逻辑通信。<br>将上层数据分段并提供端到端的、可靠或不可靠的传输及端到端的差错控制和流量控制，提供建立、维护和取消连接的功能</p>
-<h3 id="2、设备-3"><a href="#2、设备-3" class="headerlink" title="2、设备"></a>2、设备</h3><p><em>网关：协议转换器，充当转换翻译的重任，如果两个网络的通信协议、数据格式或语言不同时，网关会对信息重新打包，以适应目标系统的需求。默认在网络层以上实现网络互联（可用于局域网或广域网）</em></p>
-<p><strong>传输网关</strong>：在两个网络之间建立传输连接，不同网络的主机之间可跨越多个网络的、级联的、点对点的传输连接</p>
-<h3 id="3、协议-1"><a href="#3、协议-1" class="headerlink" title="3、协议"></a>3、协议</h3><h4 id="3-1、TCP"><a href="#3-1、TCP" class="headerlink" title="3.1、TCP"></a>3.1、TCP</h4><h4 id="3-2、UDP"><a href="#3-2、UDP" class="headerlink" title="3.2、UDP"></a>3.2、UDP</h4><h2 id="五、应用层"><a href="#五、应用层" class="headerlink" title="五、应用层"></a>五、应用层</h2><h3 id="1、概述-4"><a href="#1、概述-4" class="headerlink" title="1、概述"></a>1、概述</h3><p>为操作系统或网络应用程序提供访问网络服务的接口，数据传输基本单位报文。</p>
-<h3 id="2、设备-4"><a href="#2、设备-4" class="headerlink" title="2、设备"></a>2、设备</h3><p><strong>应用网关</strong>：应用层的协议转换。例如一个主机ISO电子邮件标准，另一个主机执行的是Internet电子邮件标准，如果这两个主机需要交换电子邮件，那么必须经过一个电子邮件网关进行协议转换。</p>
-<h3 id="3、协议-2"><a href="#3、协议-2" class="headerlink" title="3、协议"></a>3、协议</h3><p>持续更新</p>
+<p>持续更新</p>
 <p>参考<br>计算机网络第七版（谢希仁）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39307273/article/details/104525453">分类的IP地址</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/fynjy/article/details/47184627">理解IP路由器原理及工作机制</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44367006/article/details/102495693">《Linux高性能服务器编程》阅读笔记 之（二）IP 协议详解</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46155444/article/details/106263655">划分子网的方法</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/31/%E7%BD%91%E9%99%85IP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3(IP&ARP&ICMP&ICMP)%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP_UDP/" data-id="cl3uausri0000lguzgqoc95vu" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1/" data-id="cl3uw32vk0001s0uz73gib9di" class="article-share-link">Share</a>
       
       
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP%20IP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -230,7 +235,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li></ul>
     </div>
   </div>
 
@@ -243,7 +248,11 @@
       <ul>
         
           <li>
-            <a href="/2022/05/31/%E7%BD%91%E9%99%85IP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3(IP&ARP&ICMP&ICMP)%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP_UDP/">网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP</a>
+            <a href="/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP%20IP/">网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1/">网络层IP协议、路由</a>
           </li>
         
       </ul>

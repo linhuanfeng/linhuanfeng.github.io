@@ -5,15 +5,28 @@
   
 
   
-  <title>linhuanfeng</title>
+  <title>网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP | linhuanfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="linhuanfeng">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="总体概缆图  一、物理层1、概述透明的传输比特流 2、设备中继器：放大信号集线器：多个端口的集线器 二、链路层1、概述帧的开始和结束、透明传输、差错校验 2、设备网桥：连接两个局域网，根据MAC地址转发帧交换机：更多端口的网桥，根据帧的目标MAC地址对照MAC地址表决定由哪个端口转发，不在表中则向所有端口转发，即洪泛 三、网络层1、概述网络层向上提供简单高效、无连接的、最大努力的交付的数据报服务（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP">
+<meta property="og:url" content="http://example.com/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP%20IP/index.html">
 <meta property="og:site_name" content="linhuanfeng">
+<meta property="og:description" content="总体概缆图  一、物理层1、概述透明的传输比特流 2、设备中继器：放大信号集线器：多个端口的集线器 二、链路层1、概述帧的开始和结束、透明传输、差错校验 2、设备网桥：连接两个局域网，根据MAC地址转发帧交换机：更多端口的网桥，根据帧的目标MAC地址对照MAC地址表决定由哪个端口转发，不在表中则向所有端口转发，即洪泛 三、网络层1、概述网络层向上提供简单高效、无连接的、最大努力的交付的数据报服务（">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d287d408c40d441a935096fc34a0d3df.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6ce5ce48da1046d3b59b3405a220098e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bd79aead2fae488689a8df450ae6b424.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6fb8212a2ec140cfb230cddb2057f27d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1002ee4ca8e44429bb54b5f032adf386.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3f7799665f824192a311c19b848f4cbb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/24231a2dd58542d09de60cdb23729a0e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3799cb9ab6c94a6186c97e79bb8ec97c.png">
+<meta property="article:published_time" content="2022-06-01T01:05:24.828Z">
+<meta property="article:modified_time" content="2022-05-31T15:16:26.409Z">
 <meta property="article:author" content="linhuanfeng">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/d287d408c40d441a935096fc34a0d3df.png#pic_center">
   
     <link rel="alternate" href="/atom.xml" title="linhuanfeng" type="application/atom+xml">
   
@@ -62,9 +75,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-计算机网络各层设备和协议详解 TCP IP" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-计算机网络各层设备和协议详解 TCP IP" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP%20IP/" class="article-date">
   <time datetime="2022-06-01T01:05:24.828Z" itemprop="datePublished">2022-06-01</time>
@@ -77,8 +88,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%90%84%E5%B1%82%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3%20TCP%20IP/">网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP</a>
+    <h1 class="article-title" itemprop="name">
+      网际IP协议详解(IP&amp;ARP&amp;ICMP&amp;ICMP) 计算机网络各层设备和协议详解 TCP_UDP
     </h1>
   
 
@@ -199,141 +210,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-网络层IP协议、路由" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1/" class="article-date">
-  <time datetime="2022-05-31T14:53:26.380Z" itemprop="datePublished">2022-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1/">网络层IP协议、路由</a>
-    </h1>
+    <a href="/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">网络层IP协议、路由</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>总体概缆图</p>
-<p><img src="https://img-blog.csdnimg.cn/d287d408c40d441a935096fc34a0d3df.png#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="三、网络层"><a href="#三、网络层" class="headerlink" title="三、网络层"></a>三、网络层</h2><h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><p>网络层向上提供<strong>简单高效、无连接的、最大努力的交付的数据报服务</strong>（IP数据报），为主机之间提供逻辑通信。</p>
-<ul>
-<li>IP寻址</li>
-<li>路由选择</li>
-<li>分组传输</li>
-<li>控制子网运行。</li>
-</ul>
-<p>IP地址作用：IP地址通过ARP协议转为MAC地址，最终按照硬件地址找到主机的，那为什么不直接使用MAC地址，主要是屏蔽下层异构网络</p>
-<h3 id="2、设备"><a href="#2、设备" class="headerlink" title="2、设备"></a>2、设备</h3><p><strong>路由器</strong>：连接多个逻辑分开的网络，根据IP地址区分不同的网络，实现网路的互连和隔离，把IP报文传送到正确的网络。</p>
-<h3 id="3、协议"><a href="#3、协议" class="headerlink" title="3、协议"></a>3、协议</h3><h4 id="3-1、网际协议IP"><a href="#3-1、网际协议IP" class="headerlink" title="3.1、网际协议IP"></a>3.1、网际协议IP</h4><p>网际协议IP是TCP/IP体系中两个最主要的协议之一，这里所说的是IPv4。<br>与IP协议配套的三个协议：</p>
-<ul>
-<li><strong>地址解析协议ARP</strong>(Address Resolution Protocol）</li>
-<li><strong>网际控制报文协议ICMP</strong>(Internet Controller Message Protocol)</li>
-<li><strong>网际组管理协议IGMP</strong>(Internet Group Management Protocol)</li>
-</ul>
-<h5 id="3-1-1、虚拟互联网络"><a href="#3-1-1、虚拟互联网络" class="headerlink" title="3.1.1、虚拟互联网络"></a>3.1.1、虚拟互联网络</h5><p>互联网存在大量的异构物理网络，通过使用相同的IP协议，使这些网络<strong>在网络层看起来好像是一个统一的网络</strong>。</p>
-<p>举例：源主机H1要把一个IP数据报发给目的主机H2，通过存储转发，H1查看自己的路由表，看目的主机是否在本网络上。如是，<strong>直接交付</strong>；如不是，交给路由器R1。R1查找自己的路由表之后，知道应交给R2进行<strong>间接交付</strong>。</p>
-<h5 id="3-1-2、分类的IP地址："><a href="#3-1-2、分类的IP地址：" class="headerlink" title="3.1.2、分类的IP地址："></a>3.1.2、分类的IP地址：</h5><p> A类网络的IP地址范围为1.0.0.1－126.255.255.254；  网络号为127为环回测试地址</p>
-<p>B类网络的IP地址范围为：128.1.0.1－191.255.255.254；</p>
-<p>C类网络的IP地址范围为：192.0.1.1－223.255.255.254。<br><img src="https://img-blog.csdnimg.cn/6ce5ce48da1046d3b59b3405a220098e.png" alt="在这里插入图片描述"></p>
-<h5 id="3-1-3、ARP地址解析协议"><a href="#3-1-3、ARP地址解析协议" class="headerlink" title="3.1.3、ARP地址解析协议"></a>3.1.3、ARP地址解析协议</h5><p>上层的TCP报文传到网络层会加上IP地址首部，IP地址是网络层及以上使用的<strong>逻辑地址</strong>，但真正要进行数据传输的还需要用到数据链路层和物理层使用的<strong>物理地址</strong>。</p>
-<p><strong>地址解析协议ARP</strong>在主机<strong>ARP高速缓存</strong>中维护着IP地址到硬件地址的<strong>映射表</strong>，并且会动态更新（新增或超时删除），ARP高速缓存表初始化的时候采用广播的方式（我的IP地址，我的硬件地址）</p>
-<h5 id="3-1-4、网际控制报文协议ICMP"><a href="#3-1-4、网际控制报文协议ICMP" class="headerlink" title="3.1.4、网际控制报文协议ICMP"></a>3.1.4、网际控制报文协议ICMP</h5><p>ICMP允许主机或路由器报告差错情况和提供有关异常情况的报告，以更有效地转发IP数据报和提高交付成功的机会。<br>ICMP报文装在IP数据包中，作为其中的数据部分。</p>
-<p><strong>种类：</strong></p>
-<ul>
-<li>ICMP差错报告报文：终点不可达、时间超时、参数问题（数据报字段数据不正确）、路由重定向</li>
-<li>ICMP询问报文：回送请求和回答（测试是否可达）、时间戳请求和回答（可用于时间同步和测量）</li>
-</ul>
-<p><strong>应用举例：</strong></p>
-<ul>
-<li>PING:分组网间探测ping，用来测试两台主机的连通性。使用到了ICMP回送请求和回答。注意：PING是应用层直接使用网络层的例子，所以并没有通过TCP或UDP.</li>
-<li>traceroute：用来跟踪一个分组从源点到终点的路径，能得到到达路径中每个路由器的往返时间。原理：通过发送一个无法交付的UDP数据包，并不断重发，TTL从1递增，目的主机最终会发送一个<strong>ICMP终点不可达</strong>差错报告报文。</li>
-</ul>
-<h4 id="3-2、分层次的路由选择协议"><a href="#3-2、分层次的路由选择协议" class="headerlink" title="3.2、分层次的路由选择协议"></a>3.2、分层次的路由选择协议</h4><ul>
-<li>互联网的规模非常大。让路由器知道所有的网络如何到达所需的路由表太大，处理起来太花时间，交换路由时间的带宽也过大。</li>
-<li>许多单位不愿意向外界透露本部门的路由选择协议，同时又想连上互联网。</li>
-</ul>
-<p>于是互联网就划分了许多较小的<strong>自治系统</strong>（autonomous system）,称为AS，本质就是单一技术管理下的一组路由器。</p>
-<p>路由选择协议分为两大类：</p>
-<ul>
-<li><strong>内部网关协议IGP</strong>(Interior Gateway Protocol)，即一个自治系统内部使用的协议，与其它自治系统无关，常用协议有 RIP 和 OSPF 协议</li>
-<li><strong>外部网关协议EGP</strong>(External Gateway Protocol)，将路由选择信息在不同自治系统进行传递，常用的外部网关有BGP-4</li>
-</ul>
-<h5 id="3-2-1、内部网关RIP"><a href="#3-2-1、内部网关RIP" class="headerlink" title="3.2.1、内部网关RIP"></a>3.2.1、内部网关RIP</h5><p>（适合小网络）<br>RIP即路由信息协议，基于<strong>距离向量</strong>，最短跳数16视为不可达，比如（1，3，R）表示到达网络1的跳数为3，下一个路由是R.好消息传得快，坏消息传得慢。</p>
-<h5 id="3-2-2、内部网关协议OSPF"><a href="#3-2-2、内部网关协议OSPF" class="headerlink" title="3.2.2、内部网关协议OSPF"></a>3.2.2、内部网关协议OSPF</h5><p>（适合大网络）<br>开放最短路径优先协议，基于<strong>Dijkstra的最短路径</strong>算法，坏消息能够快速收敛。划分为小的区域进行洪泛，直接使用IP数据包传送。</p>
-<h5 id="3-2-3、外部网关协议BGP"><a href="#3-2-3、外部网关协议BGP" class="headerlink" title="3.2.3、外部网关协议BGP"></a>3.2.3、外部网关协议BGP</h5><p>边界网关协议，是一种<strong>域间路由协议</strong>，互联网的规模很大，自治系统之间的路由选择非常困难。另外一些数据报为了安全不能通过国外的网络。基于路径向量选择协议，每个自治系统之间保证要有一个<strong>BGP代言人</strong>。</p>
-<h4 id="3-3、IP协议详解"><a href="#3-3、IP协议详解" class="headerlink" title="3.3、IP协议详解"></a>3.3、IP协议详解</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44367006/article/details/102495693">《Linux高性能服务器编程》阅读笔记 之（二）IP 协议详解</a></p>
-<h5 id="3-3-1、IPv4头部结构"><a href="#3-3-1、IPv4头部结构" class="headerlink" title="3.3.1、IPv4头部结构"></a>3.3.1、IPv4头部结构</h5><p><img src="https://img-blog.csdnimg.cn/bd79aead2fae488689a8df450ae6b424.png" alt="在这里插入图片描述"></p>
-<h5 id="3-3-2、IP分片"><a href="#3-3-2、IP分片" class="headerlink" title="3.3.2、IP分片"></a>3.3.2、IP分片</h5><p>当IP数据报的长度超过帧的mtu时（可通过ifconfig查看），他将被<strong>分片</strong>，并只在目标主机内核中的IP模块重新<strong>组装</strong>。分片和重组可由头部字段信息来判断：数据包标识、标志和片偏移<br><img src="https://img-blog.csdnimg.cn/6fb8212a2ec140cfb230cddb2057f27d.png" alt="在这里插入图片描述"></p>
-<h5 id="3-3-3、IP模块工作流程"><a href="#3-3-3、IP模块工作流程" class="headerlink" title="3.3.3、IP模块工作流程"></a>3.3.3、IP模块工作流程</h5><p><img src="https://img-blog.csdnimg.cn/1002ee4ca8e44429bb54b5f032adf386.png" alt="在这里插入图片描述"></p>
-<h5 id="3-3-4、IP路由机制"><a href="#3-3-4、IP路由机制" class="headerlink" title="3.3.4、IP路由机制"></a>3.3.4、IP路由机制</h5><p>可通过route命令来查看路由表。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/fynjy/article/details/47184627">理解IP路由器原理及工作机制</a><br>如何根据IP地址路由到目标网络，分为三个步骤</p>
-<ul>
-<li>1）查找路由表中和数据报中目标IP地址完全匹配的主机IP地址，如果找到就交给路由项，否则转 2）</li>
-<li>2）查找具有相同网络ID，找到就交给路由项，否则转 3）</li>
-<li>3）选择默认路由项，这通常意味着下一跳是网关（<strong>默认路由项</strong>）。所有访问internet的请求都将通过网关来转发</li>
-</ul>
-<h5 id="3-3-5、IP转发"><a href="#3-3-5、IP转发" class="headerlink" title="3.3.5、IP转发"></a>3.3.5、IP转发</h5><p>不是所有的机器都有路由转发功能，可通过命令<code>echo 1 &gt; /proc/sys/net/ipv4/ip_forward</code>开启转发功能。<br>数据报子模块转发数据报的流程：</p>
-<ul>
-<li>1）检查数据报头部的TTL值。如果TTL值已经是0，则丢弃。</li>
-<li>2）判断是否是本机的某个IP地址，如果不是，发送ICMP源站选路失败给发送端。</li>
-<li>3）如果有必要，给源站发送ICMP重定向报文，告诉它更合理的吓一跳路由器。</li>
-<li>4）将TTL值减一</li>
-<li>5）如果有必要，执行分片操作</li>
-</ul>
-<h5 id="3-3-6、IP重定向"><a href="#3-3-6、IP重定向" class="headerlink" title="3.3.6、IP重定向"></a>3.3.6、IP重定向</h5><p>ICMP重定向报文包含一下信息：</p>
-<ul>
-<li>应该使用的路由器的IP地址</li>
-<li>引起重定向的IP数据报的源端IP地址，以此更新路由表缓冲<br><img src="https://img-blog.csdnimg.cn/3f7799665f824192a311c19b848f4cbb.png" alt="在这里插入图片描述"><h5 id="3-3-7、IPv6"><a href="#3-3-7、IPv6" class="headerlink" title="3.3.7、IPv6"></a>3.3.7、IPv6</h5>解决IPv4地址不够用，增加多播和流的功能；自动配置，网路安全。<br><img src="https://img-blog.csdnimg.cn/24231a2dd58542d09de60cdb23729a0e.png" alt="在这里插入图片描述"><h4 id="3-4、划分子网"><a href="#3-4、划分子网" class="headerlink" title="3.4、划分子网"></a>3.4、划分子网</h4>从两级IP到三级Ip地址，两级IP地址的缺陷：</li>
-<li>IP地址空间浪费。比如ABC类的主机课链接很多，但实际用的不多，造成浪费。</li>
-<li>路由表变得太大。给每个物理网络分配网络号，导致路由表的项目数过多。</li>
-<li>两级IP地址不灵活。开通新的网络就得先申请新的Ip地址，这段期间无法连接到网络。</li>
-</ul>
-<p>于是增加了<strong>子网号字段</strong>，是两级Ip地址变成了三级IP地址，叫做<strong>划分子网</strong>，如{&lt;网络号&gt;，&lt;子网号&gt;，&lt;主机号&gt;}，对外仍表现为同一个网络。</p>
-<p>子网掩码</p>
-<p><img src="https://img-blog.csdnimg.cn/3799cb9ab6c94a6186c97e79bb8ec97c.png" alt="在这里插入图片描述"></p>
-<h4 id="3-5、无分类编址CIDR（构造超网）"><a href="#3-5、无分类编址CIDR（构造超网）" class="headerlink" title="3.5、无分类编址CIDR（构造超网）"></a>3.5、无分类编址CIDR（构造超网）</h4><p>由于路由表的项目数太多，并且B类地址即将耗尽，引进了<strong>无分类域间路由选择CIDR</strong>(Classless Inter-Domian Routing)，CIDR的两个主要特点：</p>
-<ul>
-<li>1）CIDR消除了传统的A类、B类和C类地址以及子网的概念</li>
-<li>2）CIDR把网络前缀都相同的连续的的IP地址组成一个”<strong>CIDR地址块</strong>“。我们只要知道地址块的任何一块地址，就可以地址快的起始地址和最大地址。</li>
-</ul>
-<h4 id="3-6、虚拟专用网VPN"><a href="#3-6、虚拟专用网VPN" class="headerlink" title="3.6、虚拟专用网VPN"></a>3.6、虚拟专用网VPN</h4><ul>
-<li>由于IP地址紧缺，并且互联网不安全，机构内的主机很多不需要接入互联网。</li>
-<li>假设机构内的计算机通信都是TCP/IP协议，那么有本机构<strong>自行分配</strong>IP地址，仅在机构内部有效，称为<strong>本地地址</strong>。</li>
-<li>为防止本地地址和互联网中的IP冲突，指明了一些<strong>专用地址</strong>（private address），只在本机构有效，<strong>路由器对目的地址是专用地址的数据报一律不进行转发</strong>。如10.0.0到10.255.255.255，172.16.0.0到172.31.255.255，192.168.0.0到192.168.255.255</li>
-<li>采用这样的专用地址的互联网叫做<strong>专用互联网或本地互联网</strong>，或者叫<strong>专用网</strong>。</li>
-<li>当机构的部门分布世界各地，就需要利用公网的互联网作为本机构专用网之间的通信载体，这样的专用网又称为<strong>虚拟专用网VPN</strong>（Virtual Private Network）</li>
-<li>如果两个专用网通信需要经过公用互联网的时候，<strong>所有通过互联网传送的数据都必须加密</strong>。使用<strong>IP隧道技术</strong>实现虚拟专用网，显然机构内至少有一个合法的全球IP地址即可。<h4 id="3-7、网络地址转换NAT"><a href="#3-7、网络地址转换NAT" class="headerlink" title="3.7、网络地址转换NAT"></a>3.7、网络地址转换NAT</h4></li>
-<li>由于路由器不会转发专用地址，当专用地址想要<strong>与互联网主机通信</strong>的时候，需要通过NAT路由器<strong>将其本地址转换成全球IP地址</strong>才能联网（当然该路由器本身至少得有一个全球IP地址），这就是<strong>网络地址转换NAT</strong>(Network Address Translation)。通俗来说就是公用一个公网IP</li>
-<li>使用端口号的NAT也叫做<strong>网络地址与端口号转换NAPT</strong>(Network Address and port Translation)。由于端口号属于传输层，这违反了层次关系，导致NAPT曾遭受了一些诟病，但NAT(NAPT)依然成为互联网的一个重要组件。</li>
-</ul>
-<p>持续更新</p>
-<p>参考<br>计算机网络第七版（谢希仁）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39307273/article/details/104525453">分类的IP地址</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/fynjy/article/details/47184627">理解IP路由器原理及工作机制</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44367006/article/details/102495693">《Linux高性能服务器编程》阅读笔记 之（二）IP 协议详解</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46155444/article/details/106263655">划分子网的方法</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/31/%E7%BD%91%E7%BB%9C%E5%B1%82IP%E5%8D%8F%E8%AE%AE%E3%80%81%E8%B7%AF%E7%94%B1/" data-id="cl3uw32vk0001s0uz73gib9di" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
