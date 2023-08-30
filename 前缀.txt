@@ -1,1 +1,2 @@
 https://linhuanfeng.github.io/img
+https://linhuanfeng.github.io/img/cube.center.stl
